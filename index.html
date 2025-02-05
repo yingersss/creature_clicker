@@ -18,11 +18,15 @@
             <img id="fox_pelt" class="resource" src="/images/locked_fox_pelt.png" alt="Fox Pelt"> 
             <span id="foxPeltCount">0</span>
         </div>
-		<div class="resource-item">
+        <div class="resource-item">
             <img id="boar_hide" class="resource" src="/images/locked_boar_hide.png" alt="Boar Hide"> 
             <span id="boarHideCount">0</span>
         </div>
     </div>
+    
+    <h2>Player Stats</h2>
+    <p>Attack Power: <span id="attackPower">20</span></p>
+	<p>Rabbit Hunters: <span id="rabbitHunterCount">0</span></p>
     
     <div class="creature-container">
         <div class="creature-box">
@@ -37,13 +41,25 @@
             <br>
             <button id="unlockFox" onclick="unlockFox()">Unlock for 1 Rabbit Fur</button>
         </div>
-		<div class="creature-box" id="boarBox">
+        <div class="creature-box" id="boarBox">
             <h2>Boar</h2>
             <p>Boar Health: <span id="boarHealthCount">200</span></p>
             <img id="boar" class="creature locked" src="/images/locked_boar.png" alt="Boar" onclick="collectBoarHide()">
             <br>
             <button id="unlockBoar" onclick="unlockBoar()">Unlock for 1 Fox Fur</button>
         </div>
+    </div>
+    
+    <h2>Shop</h2>
+    <div id="shop">
+        <div class="shop-item">
+            <p>Increase Attack Power (+1) - Cost: 1 Rabbit Fur</p>
+            <button onclick="buyAttackUpgrade()">Buy</button>
+        </div>
+		<div class="shop-item">
+			<p>Buy Rabbit Hunter (+1 Rabbit Damage/Sec) - Cost:: 1 Rabbit Fur</p>
+			<button onclick="buyRabbitHunter()">Buy</button>
+		</div>
     </div>
     
     <script src="script.js"></script>
