@@ -15,6 +15,11 @@ let rabbitHunterCount = 0;
 let rabbitHunterAttack = 1
 let rabbitHunterDamage = rabbitHunterAttack * rabbitHunterCount;
 
+function updateRabbitHunterDamage() {
+    let rabbitHunterDamage = rabbitHunterAttack * rabbitHunterCount;
+    document.getElementById("rabbitHunterDamage").textContent = rabbitHunterDamage;
+    return rabbitHunterDamage;
+}
 
 function buyAttackUpgrade() {
     if (rabbitFurCount >= 1) {  // Ensure enough resources
@@ -44,12 +49,24 @@ function buyRabbitHunter() {
         rabbitHunterCount++;
         document.getElementById("rabbitHunterCount").textContent = rabbitHunterCount; // Update UI
         document.getElementById("rabbitFurCount").textContent = rabbitFurCount; // Update Rabbit Fur UI
+		updateRabbitHunterDamage(); // Update damage
     }
+}
+
+function buyRabbitHunterUpgrade() {
+	if (rabbitFurCount >= 1) {
+		rabbitFurCount -= 1;
+		rabbitHunterAttack++;
+		document.getElementById("rabbitHunterAttack").textContent = rabbitHunterAttack; // Update UI
+		document.getElementById("rabbitFurCount").textContent = rabbitFurCount; // Update Rabbit Fur UI
+		updateRabbitHunterDamage(); // Update damage
+	}
 }
 
 // Passive damage from rabbit hunters every second
 setInterval(() => {
     if (rabbitHunterCount > 0) {
+		let rabbitHunterDamage = updateRabbitHunterDamage(); // gets the current damage
         let rabbitsKilled = Math.floor(rabbitHunterDamage / 100); // Full rabbits hunted
         let remainingDamage = rabbitHunterDamage % 100; // Remaining damage on a new rabbit
 
