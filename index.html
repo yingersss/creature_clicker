@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creature Clicker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Creature Clicker</h1>
+    
+    <div class="resource-bar">
+        <div class="resource-item">
+            <img id="rabbit_tuft" class="resource" src="/images/rabbit_tuft.png" alt="Rabbit Tuft"> 
+            <span id="rabbitFurCount">0</span>
+        </div>
+        <div class="resource-item">
+            <img id="fox_pelt" class="resource" src="/images/locked_fox_pelt.png" alt="Fox Pelt"> 
+            <span id="foxPeltCount">0</span>
+        </div>
+		<div class="resource-item">
+            <img id="boar_hide" class="resource" src="/images/locked_boar_hide.png" alt="Boar Hide"> 
+            <span id="boarHideCount">0</span>
+        </div>
+    </div>
+    
+    <div class="creature-container">
+        <div class="creature-box">
+            <h2>Rabbit</h2>
+            <p>Rabbit Health: <span id="healthCount">100</span></p>
+            <img id="rabbit" class="creature" src="/images/rabbit.png" alt="Rabbit" onclick="collectRabbitFur()">
+        </div>
+        <div class="creature-box" id="foxBox">
+            <h2>Fox</h2>
+            <p>Fox Health: <span id="foxHealthCount">150</span></p>
+            <img id="fox" class="creature locked" src="/images/locked_fox.png" alt="Fox" onclick="collectFoxPelt()">
+            <br>
+            <button id="unlockFox" onclick="unlockFox()">Unlock for 1 Rabbit Fur</button>
+        </div>
+		<div class="creature-box" id="boarBox">
+            <h2>Boar</h2>
+            <p>Boar Health: <span id="boarHealthCount">200</span></p>
+            <img id="boar" class="creature locked" src="/images/locked_boar.png" alt="Boar" onclick="collectBoarHide()">
+            <br>
+            <button id="unlockBoar" onclick="unlockBoar()">Unlock for 1 Fox Fur</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+.creature {
+    width: 100px;
+    cursor: pointer;
+}
+.resource {
+    width: 50px; /* Adjust size of tufts and pelts */
+}
+.resource-bar {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-bottom: 2px solid #ccc;
+}
+.resource-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.creature-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 50px;
+	margin-top: 20px;
+}
+.creature-box {
+	text-align: center;
+}
