@@ -1,7 +1,7 @@
 let playerAttack = 20;
 // rabbit
 let rabbitFurCount = 0;
-let healthCount = 100;
+let rabbitHealthCount = 100;
 // fox
 let foxPeltCount = 0;
 let foxHealthCount = 150;
@@ -13,7 +13,6 @@ let boarHideCount = 0;
 // rabbit hunter
 let rabbitHunterCount = 0;
 let rabbitHunterAttack = 1
-let rabbitHunterDamage = rabbitHunterAttack * rabbitHunterCount;
 
 function updateRabbitHunterDamage() {
     let rabbitHunterDamage = rabbitHunterAttack * rabbitHunterCount;
@@ -32,10 +31,10 @@ function buyAttackUpgrade() {
 
 function rabbitHunterCollect() {
 	while (rabbitHunterCount > 0) {
-		if (healthCount > 0) {
-			healthCount -= rabbitHunterDamage; // Decrease health based on hunter attack
+		if (rabbitHealthCount > 0) {
+			rabbitHealthCount -= rabbitHunterDamage; // Decrease health based on hunter attack
 		}
-		if (healthCount <= 0) {
+		if (rabbitHealthCount <= 0) {
 			rabbitFurCount++;
 			document.getElementById("rabbitFurCount").textContent = rabbitFurCount;
 			setTimeout(respawnRabbit, 0);
@@ -74,26 +73,26 @@ setInterval(() => {
             rabbitFurCount += rabbitsKilled; // Grant multiple fur based on full rabbits killed
         }
 
-        healthCount -= remainingDamage; // Apply leftover hunter damage
+        rabbitHealthCount -= remainingDamage; // Apply leftover hunter damage
 
-        if (healthCount <= 0) {
+        if (rabbitHealthCount <= 0) {
             rabbitFurCount++; // Normal fur gain if a single rabbit is finished
             setTimeout(respawnRabbit, 100);
         }
 
         // Update UI
         document.getElementById("rabbitFurCount").textContent = rabbitFurCount;
-        document.getElementById("healthCount").textContent = healthCount;
+        document.getElementById("rabbitHealthCount").textContent = rabbitHealthCount;
     }
 }, 1000);
 
 
 function collectRabbitFur() {
-    if (healthCount > 0) {
-        healthCount -= playerAttack; 
-        document.getElementById("healthCount").textContent = healthCount;
+    if (rabbitHealthCount > 0) {
+        rabbitHealthCount -= playerAttack; 
+        document.getElementById("rabbitHealthCount").textContent = rabbitHealthCount;
     }
-    if (healthCount <= 0) {
+    if (rabbitHealthCount <= 0) {
         rabbitFurCount++;
         document.getElementById("rabbitFurCount").textContent = rabbitFurCount;
         setTimeout(respawnRabbit, 10);
@@ -101,8 +100,8 @@ function collectRabbitFur() {
 }
 
 function respawnRabbit() {
-    healthCount = 100;
-    document.getElementById("healthCount").textContent = healthCount;
+    rabbitHealthCount = 100;
+    document.getElementById("rabbitHealthCount").textContent = rabbitHealthCount;
 }
 
 function collectFoxPelt() {
@@ -167,7 +166,7 @@ function unlockBoar() {
         image.src = "/images/boar.png";
         var image2 = document.getElementById("boar_hide");
         image2.src = "/images/boar_hide.png";
-        document.getElementById("foxPeltCount").textContent = foxPeltCount; // FIXED: Corrected element ID
+        document.getElementById("foxPeltCount").textContent = foxPeltCount;
         document.getElementById("boar").classList.remove("locked");
         document.getElementById("unlockBoar").style.display = "none";
         boarUnlocked = true;

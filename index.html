@@ -26,13 +26,13 @@
     
     <h2>Player Stats</h2>
     <p>Attack Power: <span id="attackPower">20</span></p>
-	<p>Rabbit Hunters: <span id="rabbitHunterCount">0</span></p>
-	<p>Rabbit Hunter Damage: <span id="rabbitHunterDamage">0</span></p>
+    <p>Rabbit Hunters: <span id="rabbitHunterCount">0</span></p>
+    <p>Rabbit Hunter Damage: <span id="rabbitHunterDamage">0</span></p>
     
     <div class="creature-container">
         <div class="creature-box">
             <h2>Rabbit</h2>
-            <p>Rabbit Health: <span id="healthCount">100</span></p>
+            <p>Rabbit Health: <span id="rabbitHealthCount">100</span></p>
             <img id="rabbit" class="creature" src="/images/rabbit.png" alt="Rabbit" onclick="collectRabbitFur()">
         </div>
         <div class="creature-box" id="foxBox">
@@ -57,16 +57,21 @@
             <p>Increase Attack Power (+1) - Cost: 1 Rabbit Fur</p>
             <button onclick="buyAttackUpgrade()">Buy</button>
         </div>
-		<div class="shop-item">
-			<p>Buy Rabbit Hunter (+1 Rabbit Damage/Sec) - Cost:: 1 Rabbit Fur</p>
-			<button onclick="buyRabbitHunter()">Buy</button>
-		</div>
-		<div class="shop-item">
-			<p>Buy Rabbit Hunter Damage Upgrade (+1 Attack) - Cost:: 1 Rabbit Fur</p>
-			<button onclick="buyRabbitHunterUpgrade()">Buy</button>
-		</div>
+        <div class="shop-item">
+            <p>Buy Rabbit Hunter (+1 Rabbit Damage/Sec) - Cost: 1 Rabbit Fur</p>
+            <button onclick="buyRabbitHunter()">Buy</button>
+        </div>
+        <div class="shop-item">
+            <p>Buy Rabbit Hunter Damage Upgrade (+1 Attack) - Cost: 1 Rabbit Fur</p>
+            <button onclick="buyRabbitHunterUpgrade()">Buy</button>
+        </div>
     </div>
-    
-    <script src="script.js"></script>
+    <script src="js/global.js"></script> <!-- Load first to initialize global variables -->
+    <script src="js/ui.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/hunters.js"></script>
+    <script src="js/creatures.js"></script>
+    <script src="js/shop.js"></script>
+    <script src="js/main.js"></script> <!-- Load last to initialize the game -->
 </body>
 </html>
